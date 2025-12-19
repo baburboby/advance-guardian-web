@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Guardian Pro | Professional Monitoring</title>
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --dark: #0a0b10;
+            --card-bg: #161b22;
+            --text: #e6edf3;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(10, 11, 16, 0.8), rgba(10, 11, 16, 0.8)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80');
+            background-size: cover;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .features {
+            padding: 80px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #30363d;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #30363d;
+            font-size: 0.9rem;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">ADVANCE GUARDIAN PRO</div>
+        <p class="tagline">The most powerful and stealthy monitoring solution for your devices. Secure, Reliable, and Always Active.</p>
+        <a href="#" class="btn">DOWNLOAD APP</a>
+    </header>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="icon">📍</div>
+            <h3>Live Location</h3>
+            <p>Track device movement in real-time with pinpoint accuracy using GPS services.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📩</div>
+            <h3>SMS Monitoring</h3>
+            <p>Keep logs of all incoming and outgoing messages with stealth command support.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📞</div>
+            <h3>Call Logs</h3>
+            <p>Access detailed call history including timestamps and duration instantly.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🛡️</div>
+            <h3>Device Admin</h3>
+            <p>Advanced protection features to ensure the service remains uninterrupted.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Advance Guardian Pro. All rights reserved. <br>
+        Developed for professional device management and security.
+    </footer>
+
+</body>
+</html>
