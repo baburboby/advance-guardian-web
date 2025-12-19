@@ -3,136 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advance Guardian Pro | Professional Monitoring</title>
+    <title>Advance Guardian Pro | Next-Gen Security</title>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         :root {
             --primary: #00f2ff;
-            --dark: #0a0b10;
-            --card-bg: #161b22;
-            --text: #e6edf3;
+            --secondary: #7000ff;
+            --dark: #050505;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background-color: var(--dark);
             color: var(--text);
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Animated Background */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050505 100%);
+            z-index: -1;
+        }
+
+        .blob {
+            position: absolute;
+            width: 300px; height: 300px;
+            background: var(--secondary);
+            filter: blur(150px);
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(100%, 50%); }
+        }
+
+        /* Hero Section */
         header {
-            height: 80vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(10, 11, 16, 0.8), rgba(10, 11, 16, 0.8)), 
-                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80');
-            background-size: cover;
             text-align: center;
             padding: 20px;
         }
 
-        .logo-text {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
-            margin-bottom: 10px;
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
         }
 
-        .tagline {
+        .hero-sub {
             font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 30px;
+            color: #aaa;
+            max-width: 700px;
+            margin-bottom: 40px;
         }
 
-        .btn {
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: var(--dark);
+        .btn-main {
+            padding: 15px 40px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: bold;
-            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
+            transition: 0.4s;
         }
 
-        .btn:hover {
-            box-shadow: 0 0 20px var(--primary);
-            transform: translateY(-2px);
+        .btn-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(112, 0, 255, 0.4);
         }
 
-        .features {
-            padding: 80px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        /* Feature Section */
+        .grid {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .feature-card {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #30363d;
-            text-align: center;
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.3s;
         }
 
-        .feature-card:hover {
+        .card:hover {
+            background: rgba(255, 255, 255, 0.1);
             border-color: var(--primary);
+            transform: translateY(-10px);
         }
 
-        .icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .card h3 {
+            color: var(--primary);
+            margin: 20px 0 10px;
+            font-size: 1.5rem;
         }
+
+        .card p { color: #888; }
 
         footer {
+            padding: 50px;
             text-align: center;
-            padding: 40px;
-            border-top: 1px solid #30363d;
-            font-size: 0.9rem;
-            color: #8b949e;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #444;
         }
     </style>
 </head>
 <body>
 
+    <div class="bg-glow"></div>
+    <div class="blob"></div>
+
     <header>
-        <div class="logo-text">ADVANCE GUARDIAN PRO</div>
-        <p class="tagline">The most powerful and stealthy monitoring solution for your devices. Secure, Reliable, and Always Active.</p>
-        <a href="#" class="btn">DOWNLOAD APP</a>
+        <h1 class="hero-title">ADVANCE GUARDIAN PRO</h1>
+        <p class="hero-sub">Ultimate stealth monitoring and security intelligence. Track, protect, and manage your devices with military-grade precision.</p>
+        <a href="#" class="btn-main">GET ACCESS NOW</a>
     </header>
 
-    <section class="features">
-        <div class="feature-card">
-            <div class="icon">📍</div>
-            <h3>Live Location</h3>
-            <p>Track device movement in real-time with pinpoint accuracy using GPS services.</p>
+    <section class="grid">
+        <div class="card">
+            <div style="font-size: 3rem;">🛰️</div>
+            <h3>Real-time GPS</h3>
+            <p>Precise location mapping with historical movement data and geo-fencing alerts.</p>
         </div>
-        <div class="feature-card">
-            <div class="icon">📩</div>
-            <h3>SMS Monitoring</h3>
-            <p>Keep logs of all incoming and outgoing messages with stealth command support.</p>
+        <div class="card">
+            <div style="font-size: 3rem;">🕵️</div>
+            <h3>Stealth Mode</h3>
+            <p>Operates completely in the background without affecting device performance or user experience.</p>
         </div>
-        <div class="feature-card">
-            <div class="icon">📞</div>
-            <h3>Call Logs</h3>
-            <p>Access detailed call history including timestamps and duration instantly.</p>
-        </div>
-        <div class="feature-card">
-            <div class="icon">🛡️</div>
-            <h3>Device Admin</h3>
-            <p>Advanced protection features to ensure the service remains uninterrupted.</p>
+        <div class="card">
+            <div style="font-size: 3rem;">🛡️</div>
+            <h3>System Control</h3>
+            <p>Remotely manage device status, security permissions, and core system logs.</p>
         </div>
     </section>
 
     <footer>
-        &copy; 2025 Advance Guardian Pro. All rights reserved. <br>
-        Developed for professional device management and security.
+        &copy; 2025 Advance Guardian Pro. Engineered for Security.
     </footer>
 
+    <script>
+        // Animations
+        ScrollReveal().reveal('.hero-title', { delay: 200, origin: 'top', distance: '50px' });
+        ScrollReveal().reveal('.hero-sub', { delay: 400, origin: 'bottom', distance: '30px' });
+        ScrollReveal().reveal('.card', { delay: 500, interval: 200, origin: 'bottom', distance: '50px' });
+    </script>
 </body>
 </html>
