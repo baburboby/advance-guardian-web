@@ -20,12 +20,12 @@
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--dark); 
-            /* Background par logo ko watermark ki tarah set kiya hai */
-            background: 
-                linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.9)), 
+            /* Logo ko watermark ki tarah set kiya gaya hai */
+            background-image: 
+                linear-gradient(rgba(5, 5, 5, 0.92), rgba(5, 5, 5, 0.92)), 
                 url('logo.png');
-            background-size: 400px; /* Logo ka size background mein */
-            background-position: center;
+            background-size: 500px; 
+            background-position: center 25%;
             background-repeat: no-repeat;
             background-attachment: fixed;
             color: var(--text); 
@@ -59,8 +59,6 @@
             text-align: center; 
             padding: 20px; 
         }
-        
-        /* Logo top se hata diya gaya hai CSS aur HTML dono se */
 
         .hero-title { 
             font-size: clamp(2.2rem, 8vw, 4.5rem); 
@@ -170,7 +168,7 @@
             background: var(--card-bg); 
             padding: 50px 40px; 
             border-radius: 35px; 
-            border: 1px solid rgba(255,255,255,0.08); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
             position: relative; 
             transition: 0.4s; 
         }
