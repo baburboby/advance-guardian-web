@@ -20,8 +20,14 @@
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--dark); 
-            /* Subtle background glow effect */
-            background: radial-gradient(circle at top, #111 0%, #050505 100%);
+            /* Background par logo ko watermark ki tarah set kiya hai */
+            background: 
+                linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.9)), 
+                url('logo.png');
+            background-size: 400px; /* Logo ka size background mein */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--text); 
             overflow-x: hidden; 
             scroll-behavior: smooth; 
@@ -54,19 +60,8 @@
             padding: 20px; 
         }
         
-        /* Updated Logo Styling for Transparent Icon */
-        .main-logo { 
-            width: 160px; 
-            height: auto; 
-            margin-bottom: 20px; 
-            filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.5)); 
-            transition: 0.5s ease-in-out; 
-        }
-        .main-logo:hover { 
-            transform: scale(1.05) rotate(2deg); 
-            filter: drop-shadow(0 0 25px var(--primary)); 
-        }
-        
+        /* Logo top se hata diya gaya hai CSS aur HTML dono se */
+
         .hero-title { 
             font-size: clamp(2.2rem, 8vw, 4.5rem); 
             font-weight: 900; 
@@ -111,7 +106,6 @@
             box-shadow: 0 12px 35px rgba(0, 242, 255, 0.4); 
         }
 
-        /* Features Section */
         .grid { 
             max-width: 1200px; 
             margin: 0 auto; 
@@ -136,7 +130,6 @@
         .card h3 { margin: 18px 0; color: var(--primary); font-size: 1.6rem; }
         .card p { color: #aaa; line-height: 1.6; }
 
-        /* Video Section */
         .video-section { padding: 100px 20px; text-align: center; background: rgba(255,255,255,0.02); }
         .video-grid { 
             max-width: 1200px; 
@@ -162,11 +155,9 @@
             justify-content: center; 
         }
         .play-btn { font-size: 3rem; color: var(--primary); cursor: pointer; transition: 0.3s; }
-        .play-btn:hover { transform: scale(1.15); }
         .video-info { padding: 25px; text-align: left; }
         .video-info h4 { color: var(--primary); margin-bottom: 10px; }
 
-        /* Pricing Section */
         .pricing-section { padding: 120px 20px; text-align: center; }
         .pricing-grid { 
             max-width: 1100px; 
@@ -229,7 +220,6 @@
     </div>
 
     <header>
-        <img src="logo.png" alt="Advance Guardian Pro Logo" class="main-logo">
         <h1 class="hero-title">Advance Guardian Pro</h1>
         <p class="hero-sub">Ultimate stealth monitoring and security intelligence. Track, protect, and manage your devices with military-grade precision.</p>
         <div class="trust-container">
@@ -259,7 +249,6 @@
 
     <section class="video-section">
         <h2 style="font-size: 2.8rem; margin-bottom: 15px; font-weight: 800;">Security in Action</h2>
-        <p style="color: #888; margin-bottom: 50px;">Watch how our intelligence system protects what matters most.</p>
         <div class="video-grid">
             <div class="video-card">
                 <div class="video-placeholder"><div class="play-btn">▶</div></div>
@@ -287,7 +276,6 @@
 
     <section id="pricing" class="pricing-section">
         <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 10px;">Choose Your Protection</h2>
-        <p style="color: #888; margin-bottom: 60px;">Select a plan that fits your security requirements.</p>
         <div class="pricing-grid">
             <div class="price-card">
                 <div style="font-size: 1.2rem; font-weight: 800; color: var(--primary);">BASIC</div>
@@ -295,7 +283,6 @@
                 <ul class="features-list">
                     <li>Basic GPS Tracking</li>
                     <li>Device Status Reports</li>
-                    <li>Single Device Support</li>
                 </ul>
                 <a href="#" class="btn-price">Start Free Trial</a>
             </div>
@@ -305,9 +292,8 @@
                 <div class="price">$29 <span>/ Month</span></div>
                 <ul class="features-list">
                     <li>Full Stealth Mode</li>
-                    <li>Call & SMS Monitoring</li>
+                    <li>Call Monitoring</li>
                     <li>24/7 Priority Support</li>
-                    <li>Multi-Device Access</li>
                 </ul>
                 <a href="#" class="btn-price">Upgrade Now</a>
             </div>
@@ -319,8 +305,6 @@
     </footer>
 
     <script>
-        // Smooth reveal animations
-        ScrollReveal().reveal('.main-logo', { delay: 100, scale: 0.8, duration: 1000 });
         ScrollReveal().reveal('.hero-title', { delay: 300, origin: 'bottom', distance: '30px', duration: 1000 });
         ScrollReveal().reveal('.card', { delay: 400, interval: 200, origin: 'bottom', distance: '50px' });
         ScrollReveal().reveal('.video-card', { delay: 300, interval: 150, scale: 0.9 });
