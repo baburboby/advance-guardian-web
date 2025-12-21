@@ -20,8 +20,8 @@
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--dark); 
-            /* Background darkened for better text visibility */
-            background: linear-gradient(rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.94)), url('logo.png');
+            /* Extra darkness for better contrast against the logo grid issue */
+            background: linear-gradient(rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.96)), url('logo.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -36,19 +36,19 @@
         
         header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; position: relative; }
         
-        /* Fixed Logo: Added border-radius and background fix for the white box issue */
+        /* FINAL LOGO FIX: Forced circular crop to hide the white grid in the corners */
         .main-logo { 
-            width: 150px; 
-            height: 150px; 
-            object-fit: cover;
-            border-radius: 50%; 
+            width: 145px; 
+            height: 145px; 
+            object-fit: cover; 
+            border-radius: 50%; /* Crops the white box corners */
             margin-bottom: 25px; 
-            border: 2px solid var(--primary);
-            filter: drop-shadow(0 0 15px var(--primary)); 
-            transition: 0.5s; 
-            background-color: var(--dark);
+            border: 3px solid var(--primary); 
+            background-color: #000; /* Replaces any internal transparency grid with black */
+            filter: drop-shadow(0 0 20px var(--primary)); 
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
         }
-        .main-logo:hover { transform: scale(1.05); filter: drop-shadow(0 0 30px var(--primary)); }
+        .main-logo:hover { transform: scale(1.1); filter: drop-shadow(0 0 35px var(--primary)); }
         
         .hero-title { font-size: clamp(2.2rem, 8vw, 4.2rem); font-weight: 900; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; letter-spacing: -1px; text-transform: uppercase; }
         .hero-sub { font-size: 1.1rem; color: #bbb; max-width: 750px; margin-bottom: 30px; line-height: 1.6; font-weight: 300; }
