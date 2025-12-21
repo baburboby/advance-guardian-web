@@ -19,20 +19,13 @@
         
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: var(--dark); 
-            /* Logo ko watermark ki tarah set kiya gaya hai */
-            background-image: 
-                linear-gradient(rgba(5, 5, 5, 0.92), rgba(5, 5, 5, 0.92)), 
-                url('logo.png');
-            background-size: 500px; 
-            background-position: center 25%;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: var(--dark); /* Background hamesha dark rahega */
             color: var(--text); 
             overflow-x: hidden; 
             scroll-behavior: smooth; 
         }
 
+        /* Status Badge Fix */
         .status-badge { 
             position: fixed; 
             top: 20px; 
@@ -51,17 +44,26 @@
         @keyframes pulse-animation { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.3); } 100% { opacity: 1; transform: scale(1); } }
         
         header { 
-            height: 100vh; 
+            min-height: 100vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
             text-align: center; 
-            padding: 20px; 
+            padding: 40px 20px;
+            background: radial-gradient(circle at center, #111 0%, var(--dark) 70%);
+        }
+
+        /* Logo Styling */
+        .main-logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 15px var(--primary));
         }
 
         .hero-title { 
-            font-size: clamp(2.2rem, 8vw, 4.5rem); 
+            font-size: clamp(2rem, 8vw, 4.5rem); 
             font-weight: 900; 
             background: linear-gradient(to right, var(--primary), var(--secondary)); 
             -webkit-background-clip: text; 
@@ -70,22 +72,13 @@
             letter-spacing: -1px; 
             text-transform: uppercase; 
         }
+        
         .hero-sub { 
             font-size: 1.1rem; 
             color: #bbb; 
             max-width: 750px; 
             margin-bottom: 35px; 
             line-height: 1.6; 
-        }
-        
-        .trust-container { margin-bottom: 45px; }
-        .stars { color: var(--accent); font-size: 1.2rem; margin-bottom: 8px; }
-        .trust-tagline { 
-            font-size: 0.85rem; 
-            color: var(--primary); 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
         }
 
         .btn-main { 
@@ -99,213 +92,74 @@
             transition: 0.4s; 
             box-shadow: 0 8px 25px rgba(112, 0, 255, 0.3); 
         }
+
         .btn-main:hover { 
             transform: translateY(-3px); 
             box-shadow: 0 12px 35px rgba(0, 242, 255, 0.4); 
         }
 
+        /* Sections */
         .grid { 
             max-width: 1200px; 
             margin: 0 auto; 
             padding: 80px 20px; 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px; 
         }
         .card { 
             background: var(--card-bg); 
-            backdrop-filter: blur(12px); 
-            padding: 45px; 
-            border-radius: 28px; 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            transition: 0.4s; 
-        }
-        .card:hover { 
-            border-color: var(--primary); 
-            transform: translateY(-10px); 
-            background: rgba(0, 242, 255, 0.03); 
-        }
-        .card h3 { margin: 18px 0; color: var(--primary); font-size: 1.6rem; }
-        .card p { color: #aaa; line-height: 1.6; }
-
-        .video-section { padding: 100px 20px; text-align: center; background: rgba(255,255,255,0.02); }
-        .video-grid { 
-            max-width: 1200px; 
-            margin: 50px auto; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 35px; 
-        }
-        .video-card { 
-            background: #0a0a0a; 
-            border-radius: 24px; 
-            overflow: hidden; 
+            padding: 40px; 
+            border-radius: 25px; 
             border: 1px solid rgba(255,255,255,0.05); 
-            transition: 0.4s; 
+            transition: 0.3s;
         }
-        .video-card:hover { border-color: var(--primary); }
-        .video-placeholder { 
-            width: 100%; 
-            aspect-ratio: 16/9; 
-            background: linear-gradient(45deg, #111, #1a1a1a); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-        }
-        .play-btn { font-size: 3rem; color: var(--primary); cursor: pointer; transition: 0.3s; }
-        .video-info { padding: 25px; text-align: left; }
-        .video-info h4 { color: var(--primary); margin-bottom: 10px; }
-
-        .pricing-section { padding: 120px 20px; text-align: center; }
-        .pricing-grid { 
-            max-width: 1100px; 
-            margin: 60px auto; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 35px; 
-        }
-        .price-card { 
-            background: var(--card-bg); 
-            padding: 50px 40px; 
-            border-radius: 35px; 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            position: relative; 
-            transition: 0.4s; 
-        }
-        .price-card.popular { 
-            border: 2px solid var(--primary); 
-            background: rgba(0, 242, 255, 0.03); 
-            transform: scale(1.05); 
-        }
-        .badge { 
-            background: var(--primary); 
-            color: #000; 
-            font-size: 0.75rem; 
-            font-weight: 900; 
-            padding: 6px 18px; 
-            border-radius: 50px; 
-            position: absolute; 
-            top: -14px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-        }
-        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; }
-        .price span { font-size: 1rem; color: #888; }
-        .features-list { list-style: none; margin: 30px 0; text-align: left; }
-        .features-list li { margin-bottom: 15px; display: flex; align-items: center; color: #ccc; }
-        .features-list li::before { content: "✓"; color: var(--primary); margin-right: 12px; font-weight: bold; }
-
-        .btn-price { 
-            display: block; 
-            padding: 16px; 
-            background: rgba(255,255,255,0.08); 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 15px; 
-            font-weight: 700; 
-            transition: 0.3s; 
-        }
-        .price-card.popular .btn-price { background: var(--primary); color: #000; }
-
-        footer { padding: 80px 20px; text-align: center; color: #555; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        
+        footer { padding: 40px; text-align: center; color: #444; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
 
     <div class="status-badge">
         <div class="pulse-dot"></div>
-        <span style="font-size: 0.75rem; font-weight: 800; color: #fff;">System: Secure & Active</span>
+        <span style="font-size: 0.75rem; font-weight: 800; color: #fff;">System: Active</span>
     </div>
 
     <header>
+        <img src="logo.png" alt="" class="main-logo" onerror="this.style.display='none'">
+        
         <h1 class="hero-title">Advance Guardian Pro</h1>
         <p class="hero-sub">Ultimate stealth monitoring and security intelligence. Track, protect, and manage your devices with military-grade precision.</p>
-        <div class="trust-container">
-            <div class="stars">★★★★★</div>
-            <p class="trust-tagline">Used by professionals, trusted by thousands.</p>
-        </div>
+        
         <a href="#pricing" class="btn-main">Get Protection Now</a>
     </header>
 
     <section class="grid">
         <div class="card">
-            <div style="font-size: 3.5rem;">🛰️</div>
+            <div style="font-size: 3rem; margin-bottom: 15px;">🛰️</div>
             <h3>Real-time GPS</h3>
-            <p>Precise location mapping with historical movement data and geo-fencing alerts.</p>
+            <p>Precise location mapping with historical movement data.</p>
         </div>
         <div class="card">
-            <div style="font-size: 3.5rem;">🕵️</div>
+            <div style="font-size: 3rem; margin-bottom: 15px;">🕵️</div>
             <h3>Stealth Mode</h3>
-            <p>Operates completely in the background without affecting device performance.</p>
+            <p>Operates completely in the background without detection.</p>
         </div>
         <div class="card">
-            <div style="font-size: 3.5rem;">🛡️</div>
-            <h3>System Control</h3>
-            <p>Remotely manage device status, security permissions, and core system logs.</p>
-        </div>
-    </section>
-
-    <section class="video-section">
-        <h2 style="font-size: 2.8rem; margin-bottom: 15px; font-weight: 800;">Security in Action</h2>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-placeholder"><div class="play-btn">▶</div></div>
-                <div class="video-info">
-                    <h4>Anti-Kidnapping</h4>
-                    <p>Live GPS tracking simulation for child safety.</p>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-placeholder"><div class="play-btn">▶</div></div>
-                <div class="video-info">
-                    <h4>Special Needs Safety</h4>
-                    <p>Automated safety boundaries for special needs care.</p>
-                </div>
-            </div>
-            <div class="video-card">
-                <div class="video-placeholder"><div class="play-btn">▶</div></div>
-                <div class="video-info">
-                    <h4>Remote Wipe</h4>
-                    <p>Instantly lock or wipe device data remotely.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="pricing-section">
-        <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 10px;">Choose Your Protection</h2>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <div style="font-size: 1.2rem; font-weight: 800; color: var(--primary);">BASIC</div>
-                <div class="price">$0 <span>/ 3 Days</span></div>
-                <ul class="features-list">
-                    <li>Basic GPS Tracking</li>
-                    <li>Device Status Reports</li>
-                </ul>
-                <a href="#" class="btn-price">Start Free Trial</a>
-            </div>
-            <div class="price-card popular">
-                <div class="badge">MOST TRUSTED</div>
-                <div style="font-size: 1.2rem; font-weight: 800; color: var(--primary);">PRO PLAN</div>
-                <div class="price">$29 <span>/ Month</span></div>
-                <ul class="features-list">
-                    <li>Full Stealth Mode</li>
-                    <li>Call Monitoring</li>
-                    <li>24/7 Priority Support</li>
-                </ul>
-                <a href="#" class="btn-price">Upgrade Now</a>
-            </div>
+            <div style="font-size: 3rem; margin-bottom: 15px;">🛡️</div>
+            <h3>Secure Data</h3>
+            <p>Your monitoring data is encrypted with military standards.</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Advance Guardian Pro. Engineered for Ultimate Privacy & Security.</p>
+        <p>&copy; 2025 Advance Guardian Pro. All Rights Reserved.</p>
     </footer>
 
     <script>
-        ScrollReveal().reveal('.hero-title', { delay: 300, origin: 'bottom', distance: '30px', duration: 1000 });
-        ScrollReveal().reveal('.card', { delay: 400, interval: 200, origin: 'bottom', distance: '50px' });
-        ScrollReveal().reveal('.video-card', { delay: 300, interval: 150, scale: 0.9 });
+        ScrollReveal().reveal('.hero-title', { delay: 200, origin: 'bottom', distance: '30px' });
+        ScrollReveal().reveal('.card', { delay: 300, interval: 200 });
     </script>
 </body>
 </html>
